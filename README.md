@@ -1,6 +1,6 @@
 
 <h1 align="center">
-    <img alt="cbyk" title="#cbyk" src=".github/screenshot.png" width="720px" />
+    <img alt="cbyk" title="#cbyk" src=".github/screenshot.gif" width="720px" />
 </h1>
 
 <h4 align="center">

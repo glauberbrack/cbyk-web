@@ -6,19 +6,19 @@ import {
     SubTitle,
     Label,
     Input,
-    Box,
 } from './styles';
 
 import Button from '../../components/Button';
+import Grid from '../../components/Grid';
 
 
 function Home() {
-
-    
     const [airports, setAirports] = useState(3);
     const [clouds, setClouds] = useState(4);
     const [rows, setRows] = useState(10);
     const [columns, setColumns] = useState(10);
+
+    const [showGrid, setShowGrid] = useState(false);
 
     function handleChange(prop, event) {
         if (prop === 'airports') {
@@ -36,55 +36,71 @@ function Home() {
     }
 
     function calculateStorm(){
-        console.log(airports, clouds, rows, columns)
+        setShowGrid(true)
+    }
+
+    function calculateAnother(){
+        setShowGrid(false)
     }
 
 
     return (
-        <><Container>
-                <Row>
-                    <Col sm={12}>
-                        <Content>
+        <Container>
+            <Row>
+                <Col sm={12}>
+                    <Content>
+                        {!showGrid ? (
                             <Row>
-                                <Col sm={12}>
-                                    <Title>CBYK Airports</Title>
-                                    <SubTitle>Simule a previsão de nuvens sobre os aeroportos</SubTitle>
-                                </Col>
-                                <Col sm={3}>
-                                    <Label>Aeroportos</Label>
-                                    <Input min={3} placeholder={"3"} type={"number"} onChange={(e) => handleChange('minutes', e)} data-test="minutes-input"></Input>
-                                </Col>
-                                <Col sm={3}>
-                                    <Label>Nuvens</Label>
-                                    <Input min={3} placeholder={"4"} type={"number"} onChange={(e) => handleChange('minutes', e)} data-test="minutes-input"></Input>
-                                </Col>
-                                <Col sm={3}>
-                                    <Label>Minutos:</Label>
-                                    <Input min={3} placeholder={"10"} type={"number"} onChange={(e) => handleChange('minutes', e)} data-test="minutes-input"></Input>
-                                    
-                                </Col>
+                            <Col sm={12}>
+                                <Title>CBYK Airports</Title>
+                                <SubTitle>Simule a previsão de nuvens sobre os aeroportos</SubTitle>
+                            </Col>
+                            <Col sm={3}>
+                                <Label>Aeroportos</Label>
+                                <Input min={3} defaultValue={3} placeholder={"3"} type={"number"} onChange={(e) => handleChange('airports', e)} data-test="minutes-input"></Input>
+                            </Col>
+                            <Col sm={3}>
+                                <Label>Nuvens</Label>
+                                <Input min={4} placeholder={"4"} type={"number"} onChange={(e) => handleChange('clouds', e)} data-test="minutes-input"></Input>
+                            </Col>
+                            <Col sm={3}>
+                                <Label>Linhas:</Label>
+                                <Input min={10} placeholder={"10"} type={"number"} onChange={(e) => handleChange('rows', e)} data-test="minutes-input"></Input>
                                 
-                                <Col sm={3}>
-                                    <Label>Plano:</Label>
-                                    <Input min={3} placeholder={"10"} type={"number"} onChange={(e) => handleChange('minutes', e)} data-test="minutes-input"></Input>
-                                </Col>
-                                
-                                <Col sm={12} className={"center"}>
-                                    <Button 
-                                        text="Simular"
-                                        actionFunction={calculateStorm}
-                                        data-test="simulate-button"
-                                    />
-                                </Col>
-                                
-                                
-                            </Row>
-                        </Content>
-                    </Col>
-                </Row>
-            </Container>
+                            </Col>
+                            
+                            <Col sm={3}>
+                                <Label>Colunas:</Label>
+                                <Input min={10} placeholder={"10"} type={"number"} onChange={(e) => handleChange('columns', e)} data-test="minutes-input"></Input>
+                            </Col>
+                            
+                            <Col sm={12} className={"center"}>
+                                <Button 
+                                    text="Simular"
+                                    actionFunction={calculateStorm}
+                                    data-test="simulate-button"
+                                />
+                            </Col>
+                        </Row>
 
-        </>
+                        ) : (
+                            <Col>
+                                <Button 
+                                    text="Fazer outra simulação"
+                                    actionFunction={calculateAnother}
+                                    data-test="simulate-button"
+                                />
+                            <Grid {...{ rows, columns, airports, clouds }} /> 
+                            
+                            </Col>
+                            )
+                            }
+                    </Content>
+                </Col>
+            </Row>
+
+        </Container>
+
     );
 }
 

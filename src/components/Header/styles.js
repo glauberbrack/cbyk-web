@@ -4,6 +4,6 @@ export const Container = styled.button`
 position: absolute;
     width: 100%;
     height: 350px;
-    background: #5636D3;
+    background: #082A44;
     border: none;    
 `;

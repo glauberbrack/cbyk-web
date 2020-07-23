@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Content = styled.div`
     width: 100%;
     padding: 100px;
-    margin: 120px 0px;
+    margin: 40px 0px;
     background: #fff;
     border: 1px solid #E5E5E5;
     border-radius: 5px;
@@ -76,32 +76,6 @@ export const Input = styled.input`
     }
 `;
 
-export const Box = styled.div`
-    width: 100%;
-    padding: 20px;
-    background: #fff;
-    border-radius: 10px;
-    border: ${
-        props => props.withPlan === true
-        ? "2px solid #FF872C"
-        : "2px solid #ced4da" 
-    };
-    h3 {
-        font-weight: 900;
-        font-size: 22px;
-        letter-spacing: -0.375px;
-        color: #3B3B3B;
-        text-align: center;
-    }
-    h2 {
-        font-weight: 600;
-        font-size: 32px;
-        letter-spacing: -0.375px;
-        color: #FF872C;
-        text-align: center;
-        padding: 10px 0px;
-    }
-`;
 
 export const BlankMessage = styled.p`
     position: absolute;

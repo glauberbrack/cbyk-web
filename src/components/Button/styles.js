@@ -3,9 +3,10 @@ import { shade } from 'polished';
 
 export const Container = styled.button`
     margin: 10px;
-    background: #5636D3;
+    width: 150px;
+    background: #35C8D2;
     background-blend-mode: overlay, normal;
-    box-shadow: 0px 4px 1px #5636D3;
+    box-shadow: 0px 4px 1px #35C8D2;
     border-radius: 10px;
     padding: 10px 25px;
     outline: none!important;
@@ -21,6 +22,6 @@ export const Container = styled.button`
 
     
   &:hover {
-    background: ${shade(0.1, '#5636D3')};
+    background: ${shade(0.1, '#35C8D2')};
   }
 `;

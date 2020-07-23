@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { FaPlane } from 'react-icons/fa'
 import { Container, Row, Col} from 'react-bootstrap';
 import { 
     Content, 
@@ -52,7 +53,7 @@ function Home() {
                         {!showGrid ? (
                             <Row>
                             <Col sm={12}>
-                                <Title>CBYK Airports</Title>
+                                <Title>CBYK Airports <FaPlane size={40}/></Title>
                                 <SubTitle>Simule a previsão de nuvens sobre os aeroportos</SubTitle>
                             </Col>
                             <Col sm={3}>
@@ -84,15 +85,16 @@ function Home() {
                         </Row>
 
                         ) : (
-                            <Col>
+                            <>
+                            <Grid {...{ rows, columns, airports, clouds }} />
+                            <Col sm={12} className={"center"}>
                                 <Button 
-                                    text="Fazer outra simulação"
+                                    text="Nova Simulação"
                                     actionFunction={calculateAnother}
                                     data-test="simulate-button"
                                 />
-                            <Grid {...{ rows, columns, airports, clouds }} /> 
-                            
                             </Col>
+                            </>
                             )
                             }
                     </Content>

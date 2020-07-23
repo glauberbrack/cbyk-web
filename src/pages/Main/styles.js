@@ -29,7 +29,7 @@ export const Title = styled.h1`
     text-align: center;
 
     svg {
-        margin-right: 10px;
+        margin-left: 10px;
     }
 `;
 

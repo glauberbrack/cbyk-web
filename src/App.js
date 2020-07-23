@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Header from './components/Header'
+import Header from './components/Header';
 import Main from './pages/Main'
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <>
     <Header/>
     <Main/>
-  </>
+    </>
   );
 }
 
